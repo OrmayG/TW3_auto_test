@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b98e4cc-8a8e-4ac5-b0e6-255ea45b1801" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/codecool/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/codecool/Main.java" afterDir="false" />
+    <list default="true" id="5b98e4cc-8a8e-4ac5-b0e6-255ea45b1801" name="Changes" comment="create projects pagefactories">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/codecool/pages/projects/ProjectListPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/codecool/pages/projects/ProjectListPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +36,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "projects-page",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -64,9 +65,23 @@
       <workItem from="1707813019445" duration="28000" />
       <workItem from="1707813054944" duration="479000" />
     </task>
+    <task id="LOCAL-00001" summary="create projects pagefactories">
+      <option name="closed" value="true" />
+      <created>1707820318958</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1707820318958</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="moved the tests to te test directory" />
+    <MESSAGE value="create projects pagefactories" />
+    <option name="LAST_COMMIT_MESSAGE" value="create projects pagefactories" />
   </component>
 </project>

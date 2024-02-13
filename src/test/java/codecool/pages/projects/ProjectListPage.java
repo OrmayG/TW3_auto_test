@@ -5,6 +5,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+import java.util.LinkedList;
+import java.util.List;
 
 public class ProjectListPage {
     private WebDriver driver;
@@ -36,5 +42,21 @@ public class ProjectListPage {
     private WebElement softwareFilterButton;
     @FindBy(linkText = "Business")
     private WebElement businessFilterButton;
+
+    public List<String> getProjectNames() {
+        LinkedList<String> projectNames = new LinkedList<>();
+
+        projectNames.add(coalaProject.getText());
+        projectNames.add(demoProject.getText());
+        projectNames.add(jetiProject.getText());
+        projectNames.add(mainTestingProject.getText());
+        projectNames.add(manualTestingProject.getText());
+        projectNames.add(secretIngredientProject.getText());
+        projectNames.add(forceProject.getText());
+        projectNames.add(toucanProject.getText());
+        projectNames.add(practiceProject.getText());
+
+        return projectNames;
+    }
 
 }
