@@ -1,5 +1,8 @@
 package codecool.tests;
 
-public class CreateNewIssue
-{
+import codecool.pages.IssuesPage;
+
+public class CreateNewIssue {
+    IssuesPage issuesPage;
+    String URL = "";
 }
