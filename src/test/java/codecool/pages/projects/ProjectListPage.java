@@ -4,11 +4,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -18,6 +20,9 @@ public class ProjectListPage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
+
+    @FindBys(@FindBy(css = "td[class=\"cell-type-key\"]"))
+    private List<WebElement> allProjects;
     @FindBy(css = "a[href=\"/browse/COALA\"]")
     private WebElement coalaProject;
     @FindBy(css = "a[href=\"/browse/DEMO\"]")
@@ -44,19 +49,7 @@ public class ProjectListPage {
     private WebElement businessFilterButton;
 
     public List<String> getProjectNames() {
-        LinkedList<String> projectNames = new LinkedList<>();
-
-        projectNames.add(coalaProject.getText());
-        projectNames.add(demoProject.getText());
-        projectNames.add(jetiProject.getText());
-        projectNames.add(mainTestingProject.getText());
-        projectNames.add(manualTestingProject.getText());
-        projectNames.add(secretIngredientProject.getText());
-        projectNames.add(forceProject.getText());
-        projectNames.add(toucanProject.getText());
-        projectNames.add(practiceProject.getText());
-
-        return projectNames;
+        return allProjects.stream().map(WebElement::getText).toList();
     }
 
 }
