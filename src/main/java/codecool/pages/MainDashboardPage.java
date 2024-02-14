@@ -17,18 +17,30 @@ public class MainDashboardPage {
     WebDriver driver;
     WebDriverWait wait;
 
-    @FindBy(id="issues_new_search_link")
-    WebElement issuesButton;
-    @FindBy(id="find_link_content")
-    WebElement issuesTab;
-    @FindBy(id = "create_link")
-    WebElement createNewIssueButton;
     public MainDashboardPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id("create_link")));
         PageFactory.initElements(driver,this);
     }
+
+    @FindBy(id="issues_new_search_link")
+    WebElement issuesButton;
+    @FindBy(id="find_link_content")
+    WebElement issuesTab;
+    @FindBy(id = "create_link")
+    WebElement createNewIssueButton;
+    @FindBy(linkText = "Projects")
+    private WebElement projectDropdown;
+    @FindBy(linkText = "View All Projects")
+    private WebElement viewAllProjectsButton;
+    @FindBy(linkText = "Software")
+    private WebElement viewSoftwareProjectsButton;
+    @FindBy(linkText = "Business")
+    private WebElement viewBusinessProjectsButton;
+
+    @FindBy(xpath = "//h2")
+    public WebElement projectFilterType;
 
     public void navigateToIssuesPage(){
         issuesButton.click();
@@ -37,5 +49,25 @@ public class MainDashboardPage {
     public void openNewIssueWindow(){
 
         createNewIssueButton.click();
+    }
+    public String navigateToAllProjects() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Projects")));
+        projectDropdown.click();
+        viewAllProjectsButton.click();
+        return projectFilterType.getText();
+    }
+
+    public String navigateToSoftwareProjects() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Projects")));
+        projectDropdown.click();
+        viewSoftwareProjectsButton.click();
+        return projectFilterType.getText();
+    }
+
+    public String navigateToBusinessProjects() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Projects")));
+        projectDropdown.click();
+        viewBusinessProjectsButton.click();
+        return projectFilterType.getText();
     }
 }
