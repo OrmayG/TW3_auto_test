@@ -6,44 +6,49 @@ import codecool.pages.MainDashboardPage;
 import codecool.pages.NewIssueWindow;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.ValueSource;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.sql.Driver;
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
-public class CreateNewIssue {
+public class CreateNewIssueTest {
     WebDriver driver = new FirefoxDriver();
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+    MainDashboardPage dashboardPage;
     IssuesPage issuesPage;
-    String username = "automation67";
-    String password = "CCAutoTest19.";
+    NewIssueWindow issueWindow;
+    String username = "";
+    String password = "";
     String URL = "https://jira-auto.codecool.metastage.net/secure/Dashboard.jspa";
 
     @BeforeEach
     public void SetUp(){
         LoginPage page = new LoginPage(driver,wait);
         page.login(username,password);
+        dashboardPage = new MainDashboardPage(driver,wait);
+        dashboardPage.openNewIssueWindow();
+        issueWindow = new NewIssueWindow(driver,wait);
 
     }
 
     @ParameterizedTest
     @CsvSource({"Summary,Description,Environment"})
-    public void testin(String summary, String desc, String env){
+    public void newIssue(String summary, String desc, String env){
 
-        MainDashboardPage dashboardPage = new MainDashboardPage(driver,wait);
-        dashboardPage.openNewIssueWindow();
-        NewIssueWindow window = new NewIssueWindow(driver,wait);
-        window.newIssue(summary,desc,env);
+        issueWindow.newIssue(summary,desc,env);
+
     }
 
+    @ParameterizedTest
+    @CsvSource({"Summary,Description,Environment"})
+    public void issueIsCreated(String summary){
+        new MainDashboardPage(driver,wait).navigateToIssuesPage();
+        IssuesPage page = new IssuesPage(driver,wait);
+        System.out.println(summary);
+    }
     @AfterEach
     public void TearDown(){
         driver.quit();

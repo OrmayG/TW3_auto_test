@@ -41,7 +41,7 @@ public class NewIssueWindow {
         setSummary(summary);
         setDescription(desc);
         setEnvironment(env);
-        //saveNewIssueButton.click();
+        saveNewIssueButton.click();
 
 
     }

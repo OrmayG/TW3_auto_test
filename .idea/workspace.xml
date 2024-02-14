@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5b98e4cc-8a8e-4ac5-b0e6-255ea45b1801" name="Changes" comment="typos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CreateNewIssue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CreateNewIssue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/IssueIsPresent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/IssueIsPresent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/codecool/pages/IssuesPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/codecool/pages/IssuesPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/codecool/pages/NewIssueWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/codecool/pages/NewIssueWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CreateNewIssue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CreateNewIssueTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/IssueIsPresent.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +45,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "login",
+    "git-widget-placeholder": "issues-branch-ormay",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -66,20 +68,20 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CreateNewIssue">
-    <configuration name="CreateNewIssue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.CreateNewIssueTest">
+    <configuration name="CreateNewIssueTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TW3_auto_test" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CreateNewIssue" />
+      <option name="MAIN_CLASS_NAME" value="CreateNewIssueTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CreateNewIssue.testin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CreateNewIssueTest.testin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TW3_auto_test" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CreateNewIssue" />
+      <option name="MAIN_CLASS_NAME" value="CreateNewIssueTest" />
       <option name="METHOD_NAME" value="testin" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -88,8 +90,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CreateNewIssue" />
-        <item itemvalue="JUnit.CreateNewIssue.testin" />
+        <item itemvalue="JUnit.CreateNewIssueTest" />
+        <item itemvalue="JUnit.CreateNewIssueTest.testin" />
       </list>
     </recent_temporary>
   </component>
