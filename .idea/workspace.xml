@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b98e4cc-8a8e-4ac5-b0e6-255ea45b1801" name="Changes" comment="typos">
-      <change beforePath="$PROJECT_DIR$/src/main/java/codecool/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/codecool/pages/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CreateNewIssue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CreateNewIssue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/IssueIsPresent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/IssueIsPresent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
