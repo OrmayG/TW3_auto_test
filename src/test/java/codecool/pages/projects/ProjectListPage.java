@@ -6,12 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class ProjectListPage {
@@ -23,33 +18,51 @@ public class ProjectListPage {
 
     @FindBys(@FindBy(css = "td[class=\"cell-type-key\"]"))
     private List<WebElement> allProjects;
-    @FindBy(css = "a[href=\"/browse/COALA\"]")
-    private WebElement coalaProject;
-    @FindBy(css = "a[href=\"/browse/DEMO\"]")
-    private WebElement demoProject;
-    @FindBy(css = "a[href=\"/browse/JETI\"]")
-    private WebElement jetiProject;
-    @FindBy(css = "a[href=\"/browse/MTP\"]")
-    private WebElement mainTestingProject;
-    @FindBy(css = "a[href=\"/browse/MT\"]")
-    private WebElement manualTestingProject;
-    @FindBy(css = "a[href=\"/browse/SI\"]")
-    private WebElement secretIngredientProject;
-    @FindBy(css = "a[href=\"/browse/FORCE\"]")
-    private WebElement forceProject;
-    @FindBy(css = "a[href=\"/browse/TOUCAN\"]")
-    private WebElement toucanProject;
-    @FindBy(css = "a[href=\"/browse/PP\"]")
-    private WebElement practiceProject;
     @FindBy(linkText = "All project types")
     private WebElement allProjectsButton;
     @FindBy(linkText = "Software")
     private WebElement softwareFilterButton;
     @FindBy(linkText = "Business")
     private WebElement businessFilterButton;
+    @FindBy(id = "project-filter-text")
+    private WebElement searchInput;
 
     public List<String> getProjectNames() {
         return allProjects.stream().map(WebElement::getText).toList();
+    }
+
+    public void openVisibleProject(String projectName) {
+        driver.findElement(By.linkText(projectName)).click();
+    }
+
+    public List<String> searchForProjects(String searchMessage) {
+        searchInput.clear();
+        searchInput.sendKeys(searchMessage);
+        //search fetches slowly, website needs to catch up
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            System.out.println(e.getMessage());
+        }
+        return getProjectNames();
+    }
+
+    public List<String> searchForProjects() {
+        searchInput.clear();
+        //search fetches slowly, website needs to catch up
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            System.out.println(e.getMessage());
+        }
+        return getProjectNames();
+    }
+
+    public void navigateToSoftwareByProjectListPage() {
+        softwareFilterButton.click();
+    }
+    public void navigateToBusinessByProjectListPage() {
+        businessFilterButton.click();
     }
 
 }

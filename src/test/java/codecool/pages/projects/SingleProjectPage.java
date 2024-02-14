@@ -12,11 +12,11 @@ public class SingleProjectPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(css = "div[class=\"aui-item project-title\"]")
-    private WebElement projectNameContainer;
+    @FindBy(css = "div[class='aui-item project-title'] > a")
+    private WebElement projectName;
 
     public String getCurrentProjectName() {
-        return projectNameContainer.getText();
+        return projectName.getAttribute("title");
     }
 
 }
