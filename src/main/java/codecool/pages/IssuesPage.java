@@ -24,4 +24,7 @@ public class IssuesPage{
     public void clickSearchButton(){
         searchButton.click();     
     }
+    public void getMyIssues(){
+
+    }
 }
