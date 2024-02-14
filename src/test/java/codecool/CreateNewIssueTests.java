@@ -1,4 +1,4 @@
-
+package codecool;
 
 import codecool.pages.IssuesPage;
 import codecool.pages.LoginPage;
@@ -6,20 +6,15 @@ import codecool.pages.MainDashboardPage;
 import codecool.pages.NewIssueWindow;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.ValueSource;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.sql.Driver;
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
-public class CreateNewIssue {
+public class CreateNewIssueTests {
     WebDriver driver = new FirefoxDriver();
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
     IssuesPage issuesPage;

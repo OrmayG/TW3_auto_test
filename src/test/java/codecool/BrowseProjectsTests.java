@@ -1,4 +1,4 @@
-package codecool.tests.browseprojects;
+package codecool;
 
 import codecool.pages.MainDashboardPage;
 import codecool.pages.projects.ProjectListPage;
@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 //TODO: rename files with "Test" in them
-public class BrowseProjects {
+public class BrowseProjectsTests {
     private WebDriver driver;
     private WebDriverWait wait;
     private MainDashboardPage dashboardPage;
