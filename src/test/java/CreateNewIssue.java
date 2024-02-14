@@ -1,8 +1,10 @@
 
 
 import codecool.pages.IssuesPage;
+import codecool.pages.LoginPage;
 import codecool.pages.MainDashboardPage;
 import codecool.pages.NewIssueWindow;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -21,14 +23,15 @@ public class CreateNewIssue {
     WebDriver driver = new FirefoxDriver();
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
     IssuesPage issuesPage;
+    String username = "automation67";
+    String password = "CCAutoTest19.";
     String URL = "https://jira-auto.codecool.metastage.net/secure/Dashboard.jspa";
 
     @BeforeEach
     public void SetUp(){
-        driver.get(URL);
-        driver.findElement(By.id("login-form-username")).sendKeys("automation67");
-        driver.findElement(By.id("login-form-password")).sendKeys("CCAutoTest19.");
-        driver.findElement(By.id(("login"))).click();
+        LoginPage page = new LoginPage(driver,wait);
+        page.login(username,password);
+
     }
 
     @ParameterizedTest
@@ -39,5 +42,10 @@ public class CreateNewIssue {
         dashboardPage.openNewIssueWindow();
         NewIssueWindow window = new NewIssueWindow(driver,wait);
         window.newIssue(summary,desc,env);
+    }
+
+    @AfterEach
+    public void TearDown(){
+        driver.quit();
     }
 }
