@@ -44,7 +44,6 @@ public class IssuesPage{
     public  boolean issueIsPresent(String issue){
         searchForIssueBySummary(issue);
         for (WebElement searchResult : searchResults) {
-            System.out.println(searchResult.getText());
            return searchResult.getText().equals(issue);
         }
         return false;

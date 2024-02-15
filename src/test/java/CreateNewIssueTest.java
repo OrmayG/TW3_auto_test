@@ -48,6 +48,6 @@ public class CreateNewIssueTest {
 
     @AfterEach
     public void TearDown(){
-        //driver.quit();
+        driver.quit();
     }
 }
