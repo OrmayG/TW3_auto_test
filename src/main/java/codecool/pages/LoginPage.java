@@ -1,5 +1,6 @@
 package codecool.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,6 +20,8 @@ public class LoginPage {
     private WebElement loginButton;
     @FindBy(css = "#gadget-0-title")
     private WebElement loginGadget;
+    @FindBy(id = "captchalabel")
+    private WebElement captchaLabel;
 
     public LoginPage(WebDriver driver,WebDriverWait wait) {
         this.driver = driver;
@@ -45,5 +48,15 @@ public class LoginPage {
 
     public boolean isUserOnLoginScreen() {
         return loginGadget.isDisplayed();
+    }
+
+    public boolean isCaptchaDisplayed() {
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("captchalabel")));
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return captchaLabel.isDisplayed();
     }
 }

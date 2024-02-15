@@ -98,14 +98,7 @@ public class LoginTests {
             throw new RuntimeException(e);
         }
         loginPage.login(USERNAME, "no access");
-        try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("captchalabel")));
-        } catch (RuntimeException e) {
-            e.printStackTrace();
-            fail();
-        }
-        assertTrue(driver.findElement(By.id("captchalabel")).isDisplayed());
+
+        assertTrue(loginPage.isCaptchaDisplayed());
     }
-
-
 }
