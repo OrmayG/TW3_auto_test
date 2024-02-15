@@ -1,5 +1,6 @@
 package codecool.tests.browseprojects;
 
+import codecool.pages.LoginPage;
 import codecool.pages.MainDashboardPage;
 import codecool.pages.projects.ProjectListPage;
 import codecool.pages.projects.SingleProjectPage;
@@ -8,7 +9,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,31 +20,27 @@ import java.util.LinkedList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-//TODO: rename files with "Test" in them
-public class BrowseProjects {
+public class BrowseProjectsTests {
     private WebDriver driver;
     private WebDriverWait wait;
     private MainDashboardPage dashboardPage;
     private ProjectListPage projectsPage;
-    //TODO: check for possible constants
-    private final static Duration waitUntilTimeoutDuration = Duration.ofSeconds(30);
-    private final static String systemUnderTestUrl = "https://jira-auto.codecool.metastage.net/";
+    private LoginPage loginPage;
+    private final static String USERNAME = System.getenv("JIRA_USERNAME");
+    private final static String PASSWORD = System.getenv("PASSWORD");
+    private final static Duration WAIT_UNTIL_TIMEOUT_DURATION = Duration.ofSeconds(10);
+    private final static String SYSTEM_UNDER_TEST_URL = "https://jira-auto.codecool.metastage.net/";
 
     @BeforeEach
     public void setUp() {
         driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, waitUntilTimeoutDuration);
+        wait = new WebDriverWait(driver, WAIT_UNTIL_TIMEOUT_DURATION);
         projectsPage = new ProjectListPage(driver);
         dashboardPage = new MainDashboardPage(driver, wait);
+        loginPage = new LoginPage(driver, wait);
 
-        //TODO: env variables for password and username
-
-        driver.get(systemUnderTestUrl);
-        driver.findElement(By.id("login-form-username")).sendKeys("automation68");
-        driver.findElement(By.id("login-form-password")).sendKeys("CCAutoTest19.");
-        driver.findElement(By.id("login")).click();
+        loginPage.login(USERNAME, PASSWORD);
     }
-
 
     @AfterEach
     public void tearDown() {

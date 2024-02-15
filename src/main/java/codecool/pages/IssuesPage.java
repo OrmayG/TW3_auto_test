@@ -37,5 +37,5 @@ public class IssuesPage{
     public void deleteIssue(String issue){
         //TODO
     }
-    public void
+    //public void
 }

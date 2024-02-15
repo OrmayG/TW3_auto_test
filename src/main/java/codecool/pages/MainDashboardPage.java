@@ -20,7 +20,6 @@ public class MainDashboardPage {
     public MainDashboardPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("create_link")));
         PageFactory.initElements(driver,this);
     }
 
@@ -47,7 +46,7 @@ public class MainDashboardPage {
         issuesTab.click();
     }
     public void openNewIssueWindow(){
-
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("create_link")));
         createNewIssueButton.click();
     }
     public String navigateToAllProjects() {
