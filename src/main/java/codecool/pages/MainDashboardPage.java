@@ -36,7 +36,8 @@ public class MainDashboardPage {
     private WebElement profilePicture;
     @FindBy(xpath = "//h2")
     public WebElement projectFilterType;
-
+    @FindBy(id = "log_out")
+    private WebElement logOutButton;
     public void navigateToIssuesPage(){
         issuesTab.click();
         issuesButton.click();
@@ -69,5 +70,9 @@ public class MainDashboardPage {
         projectDropdown.click();
         viewBusinessProjectsButton.click();
         return projectFilterType.getText();
+    }
+    public void logOut(){
+        profilePicture.click();
+        logOutButton.click();
     }
 }
