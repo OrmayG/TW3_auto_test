@@ -1,4 +1,4 @@
-package codecool.tests.browseprojects;
+package codecool;
 
 import codecool.pages.LoginPage;
 import codecool.pages.MainDashboardPage;
