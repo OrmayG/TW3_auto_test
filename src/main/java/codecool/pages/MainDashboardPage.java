@@ -26,7 +26,7 @@ public class MainDashboardPage {
 
     @FindBy(id="issues_new_search_link")
     WebElement issuesButton;
-    @FindBy(id="find_link_content")
+    @FindBy(id="find_link")
     WebElement issuesTab;
     @FindBy(id = "create_link")
     WebElement createNewIssueButton;
@@ -43,8 +43,9 @@ public class MainDashboardPage {
     public WebElement projectFilterType;
 
     public void navigateToIssuesPage(){
-        issuesButton.click();
         issuesTab.click();
+        issuesButton.click();
+
     }
     public void openNewIssueWindow(){
 
