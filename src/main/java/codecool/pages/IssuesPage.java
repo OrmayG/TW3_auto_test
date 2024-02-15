@@ -12,7 +12,12 @@ public class IssuesPage{
     
     @FindBy(className = "search-button")
     WebElement searchButton;
-
+    @FindBy(className="criteria-actions")
+    WebElement moreButton;
+    @FindBy(id="reporter-1")
+    WebElement reportCriteriaButton;
+    @FindBy(id="issue_current_user-2")
+    WebElement currentUserButton;
 
 
 
@@ -25,7 +30,12 @@ public class IssuesPage{
     public void clickSearchButton(){
         searchButton.click();     
     }
-    public void getMyIssues(){
-
+    public  boolean issueIsPresent(String issue){
+        //TODO
+        return true;
     }
+    public void deleteIssue(String issue){
+        //TODO
+    }
+    public void
 }
