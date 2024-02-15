@@ -5,13 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
-import java.time.temporal.TemporalUnit;
-import java.util.concurrent.TimeUnit;
 
 public class MainDashboardPage {
     WebDriver driver;
@@ -20,7 +15,6 @@ public class MainDashboardPage {
     public MainDashboardPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("create_link")));
         PageFactory.initElements(driver,this);
     }
 
@@ -38,7 +32,8 @@ public class MainDashboardPage {
     private WebElement viewSoftwareProjectsButton;
     @FindBy(linkText = "Business")
     private WebElement viewBusinessProjectsButton;
-
+    @FindBy(xpath = "//img[contains(@alt, 'User')]")
+    private WebElement profilePicture;
     @FindBy(xpath = "//h2")
     public WebElement projectFilterType;
 
@@ -48,8 +43,12 @@ public class MainDashboardPage {
 
     }
     public void openNewIssueWindow(){
-
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("create_link")));
         createNewIssueButton.click();
+    }
+    public boolean isProfilePicturePresent() {
+        wait.until(ExpectedConditions.visibilityOf(profilePicture));
+        return profilePicture.isDisplayed();
     }
     public String navigateToAllProjects() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Projects")));
