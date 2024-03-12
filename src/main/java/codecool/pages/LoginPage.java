@@ -18,10 +18,10 @@ public class LoginPage {
     private WebElement userPasswordInput;
     @FindBy(id ="login")
     private WebElement loginButton;
-    @FindBy(css = "#gadget-0-title")
-    private WebElement loginGadget;
     @FindBy(id = "captchalabel")
     private WebElement captchaLabel;
+    @FindBy(css = "a[class$='login-link']")
+    private WebElement loginLink;
 
     public LoginPage(WebDriver driver,WebDriverWait wait) {
         this.driver = driver;
@@ -36,20 +36,20 @@ public class LoginPage {
         pressLoginButton();
     }
     private void setUsername(String username){
+        wait.until(ExpectedConditions.visibilityOf(userNameInput));
         userNameInput.sendKeys(username);
     }
     private void setPassword(String password){
+        wait.until(ExpectedConditions.visibilityOf(userPasswordInput));
         userPasswordInput.sendKeys(password);
     }
     public void pressLoginButton(){
         wait.until(ExpectedConditions.visibilityOf(loginButton));
         loginButton.click();
     }
-
-    public boolean isUserOnLoginScreen() {
-        return loginGadget.isDisplayed();
+    public boolean isLoginLinkVisible() {
+        return loginLink.isDisplayed();
     }
-
     public boolean isCaptchaDisplayed() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("captchalabel")));

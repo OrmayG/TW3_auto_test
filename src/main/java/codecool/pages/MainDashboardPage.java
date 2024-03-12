@@ -1,6 +1,7 @@
 package codecool.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -34,9 +35,15 @@ public class MainDashboardPage {
     private WebElement viewBusinessProjectsButton;
     @FindBy(xpath = "//img[contains(@alt, 'User')]")
     private WebElement profilePicture;
+    @FindBy(css = "#log_out")
+    private WebElement logOutOption;
     @FindBy(xpath = "//h2")
-    public WebElement projectFilterType;
+    private WebElement projectFilterType;
 
+    public void logOut() {
+        profilePicture.click();
+        logOutOption.click();
+    }
     public void navigateToIssuesPage(){
         issuesButton.click();
         issuesTab.click();
@@ -46,8 +53,13 @@ public class MainDashboardPage {
         createNewIssueButton.click();
     }
     public boolean isProfilePicturePresent() {
-        wait.until(ExpectedConditions.visibilityOf(profilePicture));
-        return profilePicture.isDisplayed();
+        try {
+            wait.until(ExpectedConditions.visibilityOf(profilePicture));
+        } catch (TimeoutException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return true;
     }
     public String navigateToAllProjects() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Projects")));

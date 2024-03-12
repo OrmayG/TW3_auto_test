@@ -1,0 +1,4 @@
+goodusername,goodpassword,true
+goodusername,badpassword,false
+badusername,goodpassword,false
+badusername,badpassword,false
