@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class LoginPage {
     private WebDriver driver;
     private WebDriverWait wait;
-    private String URL = "https://jira-auto.codecool.metastage.net/secure/Dashboard.jspa";
+    private static final String URL = "https://jira-auto.codecool.metastage.net/secure/Dashboard.jspa";
     @FindBy(id ="login-form-username")
     private WebElement userNameInput;
     @FindBy(id ="login-form-password")
@@ -23,7 +23,7 @@ public class LoginPage {
     @FindBy(css = "a[class$='login-link']")
     private WebElement loginLink;
 
-    public LoginPage(WebDriver driver,WebDriverWait wait) {
+    public LoginPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
         driver.get(URL);

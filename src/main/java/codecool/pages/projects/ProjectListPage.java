@@ -17,7 +17,9 @@ public class ProjectListPage {
     }
 
     @FindBys(@FindBy(css = "td[class=\"cell-type-key\"]"))
-    private List<WebElement> allProjects;
+    private List<WebElement> allVisibleProjectKeys;
+    @FindBys(@FindBy(css = "td[class=\"cell-type-project-type\"]"))
+    private List<WebElement> allVisibleProjectTypes;
     @FindBy(linkText = "All project types")
     private WebElement allProjectsButton;
     @FindBy(linkText = "Software")
@@ -28,7 +30,11 @@ public class ProjectListPage {
     private WebElement searchInput;
 
     public List<String> getProjectNames() {
-        return allProjects.stream().map(WebElement::getText).toList();
+        return allVisibleProjectKeys.stream().map(WebElement::getText).toList();
+    }
+
+    public List<String> getProjectTypes() {
+        return allVisibleProjectTypes.stream().map(WebElement::getText).toList();
     }
 
     public void openVisibleProject(String projectName) {

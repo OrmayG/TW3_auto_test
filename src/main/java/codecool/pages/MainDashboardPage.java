@@ -10,8 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MainDashboardPage {
-    WebDriver driver;
-    WebDriverWait wait;
+    private WebDriver driver;
+    private WebDriverWait wait;
 
     public MainDashboardPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
@@ -20,11 +20,11 @@ public class MainDashboardPage {
     }
 
     @FindBy(id="issues_new_search_link")
-    WebElement issuesButton;
+    private WebElement issuesButton;
     @FindBy(id="find_link_content")
-    WebElement issuesTab;
+    private WebElement issuesTab;
     @FindBy(id = "create_link")
-    WebElement createNewIssueButton;
+    private WebElement createNewIssueButton;
     @FindBy(linkText = "Projects")
     private WebElement projectDropdown;
     @FindBy(linkText = "View All Projects")
@@ -62,8 +62,9 @@ public class MainDashboardPage {
         return true;
     }
     public String navigateToAllProjects() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Projects")));
+        wait.until(ExpectedConditions.visibilityOf(projectDropdown));
         projectDropdown.click();
+        wait.until(ExpectedConditions.visibilityOf(viewAllProjectsButton));
         viewAllProjectsButton.click();
         return projectFilterType.getText();
     }

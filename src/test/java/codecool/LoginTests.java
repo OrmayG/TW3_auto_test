@@ -30,7 +30,8 @@ public class LoginTests {
     private MainDashboardPage dashboardPage;
     private final static int TIMEOUT_MILLIS = 1000;
     private final static String SYSTEM_UNDER_TEST_URL = "https://jira-auto.codecool.metastage.net/";
-    private final static String HOST_URL = "http://localhost:4444/wd/hub";
+    //HOST_URL: "http://localhost:4444/wd/hub"
+    private final static String HOST_URL = System.getenv("HOST_URL");
     private final static String USERNAME = System.getenv("JIRA_USERNAME");
     private final static String PASSWORD = System.getenv("PASSWORD");
 
@@ -46,7 +47,6 @@ public class LoginTests {
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
-
         wait = new WebDriverWait(chromeDriver, Duration.ofMillis(TIMEOUT_MILLIS));
         loginPage = new LoginPage(chromeDriver, wait);
         dashboardPage = new MainDashboardPage(chromeDriver, wait);
